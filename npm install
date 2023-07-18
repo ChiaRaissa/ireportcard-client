@@ -1,0 +1,84 @@
+[33mcommit 3350a98f712c21284a247f80d348409c09e68c90[m[33m ([m[1;36mHEAD -> [m[1;32mCI-107-localise[m[33m, [m[1;31morigin/CI-107-localise[m[33m, [m[1;31morigin/CI-107[m[33m)[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Tue Jul 18 09:50:55 2023 +0100
+
+    (CI-107) admission and localise
+
+[33mcommit 9bcb6dfabf2139d053b88430cb54123944b9bdd4[m
+Author: elroy <elroykdev@gmail.com>
+Date:   Sat Jul 15 22:58:32 2023 +0100
+
+    (CI-107) fix response handler
+
+[33mcommit b063ec0d7ae73e0370370fd7432446910b70b097[m
+Author: elroy <elroykdev@gmail.com>
+Date:   Sat Jul 15 22:56:54 2023 +0100
+
+    (CI-107) fix response handler
+
+[33mcommit a28b81327ef016ed76a9b38960da2b2438f30130[m
+Author: elroy <elroykdev@gmail.com>
+Date:   Sat Jul 15 22:24:56 2023 +0100
+
+    (CI-107) fix environment.ts
+
+[33mcommit 88e41fd70d30153488562e5dac5c6030b695f49a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Sat Jul 15 08:39:47 2023 +0100
+
+    (CI-105) application main dashboards (#106)
+    
+    * (CI-105) student endpoints
+    
+    * (CI-105) class level endpoints
+    
+    * (CI-105) complete 105
+    
+    * (CI-105) school dashboard
+    
+    * (CI-105) school dashboard
+    
+    * (CI-105) organisation dashboard
+    
+    * (CI-105) organisation dashboard
+    
+    * (CI-105) organisation dashboard
+
+[33mcommit d06f420e7eb25f2dfc85870d1366497362e1d495[m
+Merge: d835c74 d0d67c1
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Mon Jun 26 17:13:33 2023 +0100
+
+    Merge pull request #104 from transkript/CI-97-organisation-dashboard
+    
+    [CI-97] Setup organisation dashboard
+
+[33mcommit d0d67c18a63503c549f7a89b55f1a1b8fc459289[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Mon Jun 26 17:11:29 2023 +0100
+
+    (CI-97) Organisation dashboard setup (#103)
+
+[33mcommit 3dfd9e36d96ea85fe485cf2b0af7da0a398fddcb[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Sun Jun 11 13:08:10 2023 +0100
+
+    (CI-98) Create crud table component (#102)
+
+[33mcommit d835c74ae231ed00b9f7e87c4a3c17604c964ac2[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Sun Jun 11 10:43:43 2023 +0100
+
+    (CI-95) Setup generic side navigation component (#96)
+
+[33mcommit aabfcca832a9c35532fa41dd03ba80cfe7366372[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Sun Jun 11 05:49:27 2023 +0100
+
+    (CI-93) Feature profile page (#94)
+
+[33mcommit 56a5ae2db75027f304ea7bf6b22e4c7aa31e6269[m
+Author: Elroy Kanye <68631069+elroykanye@users.noreply.github.com>
+Date:   Sat May 27 21:33:44 2023 +0100
+
+    initial commit
