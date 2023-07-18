@@ -1,19 +1,19 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Register Admin Form</h5>
+    <h5 class="card-title" i18n>Register Admin Form</h5>
 
     <!-- Multi Columns Form -->
     <form (submit)="submit()" [formGroup]="form" class="row g-3">
       <div class="col-md-6">
-        <label class="form-label" for="name">Name</label>
+        <label class="form-label" for="name" i18n>Name</label>
         <input class="form-control" formControlName="name" id="name" type="text">
       </div>
       <div class="col-md-6">
-        <label class="form-label" for="max-grade">Max Grade</label>
+        <label class="form-label" for="max-grade" i18n>Max Grade</label>
         <input class="form-control" formControlName="maxGrade" id="max-grade" type="text">
       </div>
       <div class="gap-2">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit" i18n>Submit</button>
       </div>
     </form><!-- End Multi Columns Form -->
   </div>

@@ -2,18 +2,18 @@
   <div class="p">
     <form [formGroup]="form" class="formgrid grid">
       <div class="pb-3 col-12">
-        <span class="text-700 text-2xl">{{title}}</span>
+        <span class="text-700 text-2xl" i18n>{{title}}</span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <input class="w-full" formControlName="firstname" id="firstname" pInputText>
-            <label [htmlFor]="'firstname'">First Name</label>
+            <label [htmlFor]="'firstname'" i18n>First Name</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <input class="w-full" formControlName="lastname" id="lastname" pInputText>
-            <label [htmlFor]="'lastname'">LastName</label>
+            <label [htmlFor]="'lastname'" i18n>LastName</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
@@ -27,50 +27,50 @@
               placeholder="Gender"
               styleClass="w-full">
             </p-dropdown>
-            <label [htmlFor]="'gender'">Gender</label>
+            <label [htmlFor]="'gender'" i18n>Gender</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <input class="w-full" formControlName="phone" id="phone" pInputText>
-            <label [htmlFor]="'phone'">Phone Number</label>
+            <label [htmlFor]="'phone'" i18n>Phone Number</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <input class="w-full" formControlName="address" id="address" pInputText>
-            <label [htmlFor]="'address'">Address</label>
+            <label [htmlFor]="'address'" i18n>Address</label>
           </span>
       </div>
 
       <!-- Login -->
       <div class="pb-3 col-12">
-        <span class="text-700 text-2xl">Login Information</span>
+        <span class="text-700 text-2xl" i18n>Login Information</span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <input class="w-full" formControlName="email" id="email" pInputText>
-            <label [htmlFor]="'email'">Email Address</label>
+            <label [htmlFor]="'email'" i18n>Email Address</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
             <p-password [toggleMask]="true" formControlName="password" id="password" inputStyleClass="w-full"
                         styleClass="w-full"></p-password>
-            <label [htmlFor]="'password'">Password</label>
+            <label [htmlFor]="'password'" i18n>Password</label>
           </span>
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
         <span class="p-float-label w-full">
           <p-password [toggleMask]="true" formControlName="password2" id="password2" inputStyleClass="w-full"
                       styleClass="w-full"></p-password>
-          <label [htmlFor]="'password2'">Repeat Password</label>
+          <label [htmlFor]="'password2'" i18n>Repeat Password</label>
         </span>
       </div>
 
       <!--buttons-->
       <div class="field col-12 mb-lg-3">
-        <label [htmlFor]="'upload'">Upload Student Photo</label>
+        <label [htmlFor]="'upload'" i18n>Upload Student Photo</label>
         <p-fileUpload
           chooseLabel="Upload Image"
           id="upload"
