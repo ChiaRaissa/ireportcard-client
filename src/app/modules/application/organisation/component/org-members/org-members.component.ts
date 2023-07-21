@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../../../services/http/user/user.service";
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {UserUtil} from "../../../../../utils/user.util";
+import { UserPayload } from 'src/app/models/entity/user/user.payload';
 
 @Component({
   selector: 'app-org-members',
@@ -10,13 +11,15 @@ import {UserUtil} from "../../../../../utils/user.util";
 })
 export class OrgMembersComponent implements OnInit {
   table?: TableModel;
+  data: UserPayload[]=[]
 
   constructor(private _userService: UserService,) {
   }
 
   ngOnInit(): void {
     this._userService.getAllByOrganisation().subscribe(res => {
-      this.table = UserUtil.createTable(res, "Members");
+      this.data=res;
+      
     })
   }
 }

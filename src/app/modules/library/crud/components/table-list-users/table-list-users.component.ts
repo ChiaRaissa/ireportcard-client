@@ -15,6 +15,7 @@ import {genderValues} from "../../../../../models/entity/base/gender.enum";
   styleUrls: ['./table-list-users.component.css']
 })
 export class TableListUsersComponent implements OnInit, DataComponent<UserPayload[]> {
+  @Input()
   data: UserPayload[] = [];
   @Input()
   title: string = "Users";
