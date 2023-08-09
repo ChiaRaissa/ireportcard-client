@@ -16,9 +16,6 @@ export class OrgMembersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._userService.getAllByOrganisation().subscribe(res => {
-      this.data = res;
 
-    })
   }
 }

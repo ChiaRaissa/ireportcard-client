@@ -1,6 +1,6 @@
-export const titlecase = (str: string) => {
+export const titlecase = (str?: string) => {
   if (!str) {
-    return str; // Return the input string if it's empty or null
+    return ""; // Return the input string if it's empty or null
   }
   const words = str.toLowerCase().split(' ');
   for (let i = 0; i < words.length; i++) {

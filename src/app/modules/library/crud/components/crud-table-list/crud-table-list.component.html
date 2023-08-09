@@ -1,0 +1,34 @@
+
+<div class="card">
+  <p-table
+    [loading]="dataLoading"
+    [title]="tableData.table.title"
+    [value]="tableData.table.body"
+    [rows]="pagination.size"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="rowsPerPageOptions">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let header of tableData.table.header.cells">{{header.value}}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td *ngFor="let cell of row.cells">
+          {{cell.value}}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <p-paginator
+        [rowsPerPageOptions]="rowsPerPageOptions"
+        [showCurrentPageReport]="true"
+        [totalRecords]="pagination.totalData"
+        [rows]="pagination.size"
+        (onPageChange)="pageChangeAction($event)"
+      ></p-paginator>
+    </ng-template>
+  </p-table>
+</div>

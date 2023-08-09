@@ -52,6 +52,8 @@ import {
   TableListStudentClasslistComponent
 } from "./crud/components/table-list-student-classlist/table-list-student-classlist.component";
 import {AttendanceUserComponent} from "./general/components/attendance-user/attendance-user.component";
+import {PaginatorModule} from "primeng/paginator";
+import { CrudTableListComponent } from './crud/components/crud-table-list/crud-table-list.component';
 
 
 @NgModule({
@@ -84,10 +86,12 @@ import {AttendanceUserComponent} from "./general/components/attendance-user/atte
     FormStudentTuitionPayComponent,
     FormOrgSetupOrganisationComponent,
     TableListStudentClasslistComponent,
-    AttendanceUserComponent
+    AttendanceUserComponent,
+    CrudTableListComponent
   ],
   exports: [
     PasswordModule,
+    PaginatorModule,
     ReactiveFormsModule,
     HeaderComponent,
     SidebarComponent,
@@ -129,6 +133,7 @@ import {AttendanceUserComponent} from "./general/components/attendance-user/atte
     AttendanceUserComponent
   ],
   imports: [
+    PaginatorModule,
     CommonModule,
     ReactiveFormsModule,
     RouterLink,

@@ -47,7 +47,7 @@ export class FormDepartmentAddComponent implements SubmitForm, OnInit, OnChanges
   ngOnInit() {
     this._userService.listUsers(new UserFilter({
       role: Role.TEACHER, approved: true, schoolId: SchoolId(), organisationId: OrganisationId()
-    })).subscribe(res => this.teachers = res.map(u => {
+    })).subscribe(res => this.teachers = res.data.map(u => {
       return {name: u.account?.name ?? u.user.email, id: u.account?.id}
     }));
   }

@@ -74,10 +74,6 @@ export class SidebarComponent implements OnInit {
     });
     this._userService.getByPrincipal().subscribe(res => {
       this.displaySwitch = res.account?.role == Role.ORGANISATION_ADMIN
-      console.log(this.displaySwitch)
-      console.log(res.account?.role)
-      console.log(Role.ORGANISATION_ADMIN)
-      console.log(Role.ORGANISATION_ADMIN == res.account?.role)
     })
   }
 

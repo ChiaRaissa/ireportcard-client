@@ -52,7 +52,7 @@ export class SchStudentsComponent implements DataComponent<UserPayload[]> {
 
   refresh = () => {
     this._userService.listUsers(this.filter).subscribe(res => {
-      this.data = res;
+      this.data = res.data;
     });
   }
 }

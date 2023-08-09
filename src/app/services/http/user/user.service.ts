@@ -7,6 +7,8 @@ import {AppEndpoint} from "../../../app.endpoints";
 import {UserFilter} from "../../../models/filter/user/user.filter";
 import {DEFAULT_ID} from "../../../utils/base.util";
 import {UserEntity} from "../../../models/entity/user/user.entity";
+import {ResponseListPayload} from "../../../models/payload/api/response/response-list.payload";
+import {PaginationPayload} from "../../../models/payload/api/pagination.payload";
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +29,14 @@ export class UserService extends AppService<UserEntity, UserPayload> {
     return this.http.get<UserPayload[]>(this.urlWithPath('/organisation'));
   }
 
-  listUsers = (filter: UserFilter): Observable<UserPayload[]> => {
-    let schoolId = DEFAULT_ID;
-    if (typeof filter.params.schoolId == 'number') {
-      schoolId = filter.params.schoolId < 0 ? schoolId : filter.params.schoolId
+  listUsers = (filter: UserFilter, pagination?: PaginationPayload): Observable<ResponseListPayload<UserPayload>> => {
+    let organisationId = DEFAULT_ID;
+    if (typeof filter.params.organisationId == 'number') {
+      organisationId = filter.params.organisationId < 0 ? organisationId : filter.params.organisationId
     }
-    return this.http.get<UserPayload[]>(this.urlWithPath(`/school/${schoolId}/list`),
+    return this.http.get<ResponseListPayload<UserPayload>>(this.urlWithPath(`/organisation/${organisationId}/list`),
       {
-        params: filter.parameters
+        params: filter.obj
       }
     );
   }
