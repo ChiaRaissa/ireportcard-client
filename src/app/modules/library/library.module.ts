@@ -87,6 +87,7 @@ import {AttendanceUserComponent} from "./general/components/attendance-user/atte
     AttendanceUserComponent
   ],
   exports: [
+    PasswordModule,
     ReactiveFormsModule,
     HeaderComponent,
     SidebarComponent,

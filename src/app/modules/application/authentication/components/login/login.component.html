@@ -20,31 +20,33 @@
                 <p class="text-center small">Enter your username & password to login</p>
               </div>
 
-              <form [formGroup]="loginForm" class="row g-3 needs-validation" novalidate>
+              <form [formGroup]="loginForm" class="row g-2 needs-validation" novalidate>
 
                 <div class="col-12">
                   <label class="form-label" for="username">Username</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input class="form-control" formControlName="username" id="username" name="username" type="text">
+                  <div class="input-group has-validation p-inputtext-sm">
+                    <span class="input-group-text col-1" id="inputGroupPrepend">@</span>
+                    <input pInputText formControlName="username" type="text" class="col-11">
                     <div class="invalid-feedback">Please enter your username.</div>
                   </div>
                 </div>
 
                 <div class="col-12">
                   <label class="form-label" for="password">Password</label>
-                  <input class="form-control" formControlName="password" id="password" name="password" type="password">
+                  <p-password styleClass="p-input-text w-full p-inputtext-sm"  [inputStyle]="{'width':'100%'}" formControlName="password" [toggleMask]="true" ></p-password>
                   <div class="invalid-feedback">Please enter your password!</div>
                 </div>
 
                 <div class="col-12">
                   <div class="form-check">
                     <input class="form-check-input" id="rememberMe" name="remember" type="checkbox" formControlName="extend">
+
+                    <p-checkbox formControlName="extend" inputId="rememberMe"></p-checkbox>
                     <label class="form-check-label" for="rememberMe">Remember me</label>
                   </div>
                 </div>
                 <div class="col-12">
-                  <button (click)="loginFormAction()" class="btn btn-primary w-100" type="submit">Login</button>
+                  <p-button label="Login" (click)="loginFormAction()" styleClass="w-full  p-button-sm"></p-button>
                 </div>
                 <div class="col-12">
                   <p class="small mb-0">Don't have account?
