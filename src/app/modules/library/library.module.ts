@@ -52,6 +52,9 @@ import {
   TableListStudentClasslistComponent
 } from "./crud/components/table-list-student-classlist/table-list-student-classlist.component";
 import {AttendanceUserComponent} from "./general/components/attendance-user/attendance-user.component";
+import { FormCycleAcademicYearComponent } from './form/components/form-cycle-academic-year/form-cycle-academic-year.component';
+import { FormCycleSchoolTermComponent } from './form/components/form-cycle-school-term/form-cycle-school-term.component';
+import { FormCycleSequenceComponent } from './form/components/form-cycle-sequence/form-cycle-sequence.component';
 import {PaginatorModule} from "primeng/paginator";
 import { CrudTableListComponent } from './crud/components/crud-table-list/crud-table-list.component';
 
@@ -86,6 +89,10 @@ import { CrudTableListComponent } from './crud/components/crud-table-list/crud-t
     FormStudentTuitionPayComponent,
     FormOrgSetupOrganisationComponent,
     TableListStudentClasslistComponent,
+    AttendanceUserComponent,
+    FormCycleAcademicYearComponent,
+    FormCycleSchoolTermComponent,
+    FormCycleSequenceComponent,
     AttendanceUserComponent,
     CrudTableListComponent
   ],
@@ -130,7 +137,10 @@ import { CrudTableListComponent } from './crud/components/crud-table-list/crud-t
     FormStudentTuitionPayComponent,
     FormOrgSetupOrganisationComponent,
     TableListStudentClasslistComponent,
-    AttendanceUserComponent
+    AttendanceUserComponent,
+    FormCycleAcademicYearComponent,
+    FormCycleSchoolTermComponent,
+    FormCycleSequenceComponent
   ],
   imports: [
     PaginatorModule,

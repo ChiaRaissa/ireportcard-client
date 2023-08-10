@@ -1,4 +1,4 @@
-export const serviceData = [
+export const serviceData: serviceDataInterface[] = [
     {
        data_color: "blue",
        title: "Comprehensive Grading System",
@@ -30,3 +30,9 @@ export const serviceData = [
         description: "A customizable and scalable system tailored to meet the specific needs of educational institutions, ensuring adaptability and future readiness."
     },
 ]
+
+export interface serviceDataInterface {
+  data_color:  string;
+  title: string;
+  description: string;
+}

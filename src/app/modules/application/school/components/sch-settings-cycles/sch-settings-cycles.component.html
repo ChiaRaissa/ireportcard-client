@@ -1,42 +1,40 @@
 <div class="surface-section">
   <p-accordion [activeIndex]="0">
     <p-accordionTab header="Academic Years">
-      <form class="formgrid grid">
-        <div class="col-12 md:col-6">
-          <div class="pb-3">
-            <span class="text-xl">Academic Year Details</span>
-          </div>
-          <div class="grid">
-            <div class="field col-12">
-              <label for="year1">Start Year</label>
-              <input class="w-full p-inputtext-sm" id="year1" pInputText>
-            </div>
-            <div class="field col-12">
-              <label for="year2">End Year</label>
-              <input class="w-full p-inputtext-sm" id="year2" pInputText>
-            </div>
-            <div class="field col-12">
-              <label class="block mb-2" for="effective">Effective Date</label>
-              <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
-            </div>
-          </div>
+      <div class="col-12 grid flex flex-wrap">
+        <div class="col-12 md:col-6 lg:col-6">
+          <!--   Academic cycle form   -->
+          <app-form-cycle-academic-year></app-form-cycle-academic-year>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="pb-3">
+        <!--  Current Year and Task  -->
+        <div class="col-12 md:col-6 lg:col-6">
+          <div class="pb-1">
+            <span class="text-xl ">Current Year Cycle</span>
+          </div>
+          <div class="field col-12">
+            <div class="w-full">
+              <div class="py-2 px-3 flex justify-content-between text-center align-items-center bg-blue-500 border-round">
+                <div class="font-bold text-white">2020 - 2021</div>
+                <span class="text-blue-100 font-bold text-white">open: 14/10/2020</span>
+              </div>
+            </div>
+          </div>
+          <div class="pb-2">
             <span class="text-xl ">Previous Year Cycles</span>
           </div>
-          <div class="grid">
-            <div class="field col-12">
-              <label for="address1">Address Line 1</label>
-              <input class="w-full p-inputtext-sm" id="address1" pInputText>
+          <div class="field col-12">
+            <div class="grid gap-1 overflow-auto max-h-11rem">
+              <!-- Previous Year List -->
+              <div class="w-full">
+                <div class="py-2 px-3 flex justify-content-between text-center align-items-center bg-black-alpha-30 border-round">
+                  <div class="font-bold text-white">2020 - 2021</div>
+                  <span class="text-blue-100 font-bold text-white">open: 14/10/2020</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-4 gap-2 flex flex-wrap gap-1">
-          <p-button label="Save" styleClass="p-button-sm"></p-button>
-          <p-button label="Cancel" styleClass="p-button-sm p-button-secondary"></p-button>
-        </div>
-      </form>
+      </div>
     </p-accordionTab>
     <p-accordionTab header="Terms">
       <form class="formgrid grid">
@@ -58,8 +56,8 @@
               <input class="w-full p-inputtext-sm" id="termType" pInputText>
             </div>
             <div class="field col-12">
-              <label class="block mb-2" for="termEffective">Effective Date</label>
-              <p-calendar id="termEffective" styleClass="w-full p-inputtext-sm"></p-calendar>
+              <label class="block mb-2" for="effective">Effective Date</label>
+              <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
             </div>
           </div>
         </div>
