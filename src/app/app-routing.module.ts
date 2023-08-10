@@ -1,13 +1,18 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {ShellComponent} from "./components/shell/shell.component";
-import {authenticationGuard} from "./guard/authentication.guard";
-import {LandingComponent} from "./components/landing/landing.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ShellComponent } from "./components/shell/shell.component";
+import { authenticationGuard } from "./guard/authentication.guard";
+import { LandingComponent } from "./components/landing/landing.component";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LandingComponent
+  },
+  {
+    path: 'page',
+    component: PageNotFoundComponent
   },
   {
     path: 'auth',
@@ -17,8 +22,8 @@ const routes: Routes = [
     path: 'onboard',
     loadChildren: () => import('./modules/application/onboard/onboard.module').then(m => m.OnboardModule)
   },
-  { 
-    path: 'setup', 
+  {
+    path: 'setup',
     loadChildren: () => import('./modules/application/setup/setup.module').then(m => m.SetupModule)
   },
   {
