@@ -2,6 +2,7 @@ import {HttpParams} from "@angular/common/http";
 import {Pair} from "../../app.types";
 import {Id} from "../entity/base/base.entity";
 import {OrganisationId, SchoolId} from "../../services/general/local-storage.service";
+import {PaginationPayload} from "../payload/api/pagination.payload";
 
 export interface BaseFilterParams {
   id?: Id
@@ -31,11 +32,30 @@ export abstract class BaseFilter extends HttpParams {
     return this._parameters;
   }
 
+  get obj(): { [p: string]: any } {
+    const filteredParameters: { [p: string]: any } = {};
+    Object.entries(this.parameters).forEach(([key, value]) => {
+      if (value !== undefined && value != 'undefined') {
+        filteredParameters[key] = value;
+      }
+    });
+    return {
+      'filter': JSON.stringify(filteredParameters)
+    }
+  }
+
   update(o: any) {
     if (typeof o == 'object') {
       Object.entries(o).forEach(([k, v]) => {
         this.param = {key: k, value: v};
       });
+    }
+  }
+
+  addPagination = (pagination: PaginationPayload) => {
+    this.param = {
+      key: 'pagination',
+      value: pagination
     }
   }
 

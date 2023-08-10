@@ -8,13 +8,42 @@ import {OrganisationId, SchoolId} from "../../../../../services/general/local-st
 import {FormModel} from "../../../form/models/form/form.model";
 import {FormControlModel, FormControlValue} from "../../../form/models/form/form-control.model";
 import {genderValues} from "../../../../../models/entity/base/gender.enum";
+import {
+  defaultPagination,
+  paginationFromPaginatorState,
+  PaginationPayload
+} from "../../../../../models/payload/api/pagination.payload";
+import {PaginatorState} from "primeng/paginator";
+import {CrudTableData} from "../../models/crud-table.model";
+import {titlecase} from "../../../../../utils/string.util";
 
 @Component({
   selector: 'app-table-list-users',
-  templateUrl: './table-list-users.component.html',
-  styleUrls: ['./table-list-users.component.css']
+  styleUrls: ['./table-list-users.component.css'],
+  template: `
+    <app-data-filter (submitEvent)="dataFilterAction($event)" [formModel]="dataFilterForm"></app-data-filter>
+
+    <app-crud-table-list
+      [tableData]="tableData" [pagination]="pagination" [dataLoading]="dataLoading"
+      (pageChangeEventEmitter)="pageChangeAction($event)">
+    </app-crud-table-list>
+  `
 })
 export class TableListUsersComponent implements OnInit, DataComponent<UserPayload[]> {
+  readonly tableData = new CrudTableData({
+    title: 'Members',
+    headers: [
+      'Username', 'Name', 'Gender', 'Approved'
+    ],
+    data: <UserPayload[]>[],
+    mappings: [
+      (u) => u.user.username,
+      (u) => u.account?.name,
+      (u) => titlecase(u.account?.gender),
+      (u) => u.user.approved,
+    ]
+  });
+
   @Input()
   data: UserPayload[] = [];
   @Input()
@@ -24,6 +53,9 @@ export class TableListUsersComponent implements OnInit, DataComponent<UserPayloa
   @Input()
   filter?: UserFilter;
   dataFilterForm: FormModel;
+
+  pagination: PaginationPayload = defaultPagination();
+  dataLoading = true;
 
   constructor(private _userService: UserService) {
     this.dataFilterForm = new FormModel({
@@ -57,9 +89,20 @@ export class TableListUsersComponent implements OnInit, DataComponent<UserPayloa
 
   refresh = () => {
     if (this.filter) {
-      this._userService.listUsers(this.filter).subscribe(res => {
-        this.data = res;
+      this.dataLoading = true;
+      this._userService.listUsers(this.filter).subscribe({
+        next: (res) => {
+          this.pagination = res.pagination
+          this.tableData.data = res.data
+        },
+        complete: () => this.dataLoading = false
       });
     }
+  }
+
+  pageChangeAction($event: PaginatorState) {
+    console.log($event)
+    this.filter?.addPagination(paginationFromPaginatorState($event));
+    this.refresh();
   }
 }

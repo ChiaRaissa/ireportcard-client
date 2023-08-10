@@ -17,7 +17,7 @@ export class BreadCrumbModel {
 }
 
 export interface BreadCrumbMenuItem {
-  routerLink: string,
+  routerLink?: string,
   label: string
 }
 

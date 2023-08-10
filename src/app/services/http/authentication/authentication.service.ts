@@ -11,6 +11,7 @@ import {LaunchFilter} from "../../../models/filter/auth/launch.filter";
 import {isValidId} from "../../../models/entity/base/base.entity";
 import {RouterService} from "../../general/router.service";
 import {AppRoute} from "../../../app.routes";
+import {UserService} from "../user/user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AuthenticationService extends AppService<any, any> {
   constructor(
     private http: HttpClient,
     private _localStorage: LocalStorageService,
-    private _routerService: RouterService
+    private _routerService: RouterService,
+    private _userService: UserService,
   ) {
     super(http);
   }
@@ -29,6 +31,12 @@ export class AuthenticationService extends AppService<any, any> {
 
   launch = (filter: LaunchFilter | null = null): Observable<LaunchResponse> => {
     const response = new Subject<LaunchResponse>();
+    this._userService.getByPrincipal().subscribe(res => {
+      if (isValidId(res.account?.schoolId)) {
+        this._localStorage.set("school_id", res.account?.schoolId);
+      }
+      this._localStorage.set("organisation_id", String(res.account?.organisationId));
+    })
     this.http.get<LaunchResponse>(AppEndpoint.LAUNCH.url, {
       params: filter?.parameters
     }).subscribe(res => {

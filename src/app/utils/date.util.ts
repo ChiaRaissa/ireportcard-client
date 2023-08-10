@@ -16,27 +16,34 @@ export const dateToISO = (date: Date | string | undefined, time: boolean = false
   }
 }
 
-class CustomDate extends Date {
-  constructor(date: Date) {
-    super();
-    this.setDate(date.getDate());
+class DateTime {
+  private date: Date;
+  constructor(datetime: string | Date | undefined) {
+    this.date = new Date(datetime ?? new Date());
   }
 
-  static today() {
-    return new Date();
+  // Returns a string representation of the time component of the DateTime object
+  get timeAsString(): string {
+    const hour = this.date.getHours().toString().padStart(2, '0');
+    const minute = this.date.getMinutes().toString().padStart(2, '0');
+    const second = this.date.getSeconds().toString().padStart(2, '0');
+
+    return `${hour}:${minute}:${second}`;
   }
 
-  static toISO = (date: Date, time: boolean = false) => {
-    dateToISO(date, time)
-  }
+  // Returns a string representation of the date component of the DateTime object
+  get dateAsString(): string {
+    const year = this.date.getFullYear().toString().padStart(4, '0');
+    const month = (this.date.getMonth() + 1).toString().padStart(2, '0');
+    const day = this.date.getDate().toString().padStart(2, '0');
 
-  new() {
-
-  }
-
-  toISO = (time: boolean = false) => {
-    dateToISO(this, time);
+    return `${year}-${month}-${day}`;
   }
 }
 
+export const displayTime = (isodate: PossibleDate) => {
+  return new DateTime(isodate).timeAsString
+}
 
+export type PossibleDateArray = [number, number, number, number, number, number, number]
+export type PossibleDate = string | Date | undefined

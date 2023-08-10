@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = _fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
+      extend:[false]
     });
   }
 
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     const loginRequest: LoginRequest = {
       username: this.loginForm.get('username')?.value,
       password: this.loginForm.get('password')?.value,
+      extend: this.loginForm.get('extend')?.value ?? false,
     }
     this._localStorageService.clear();
     this._authenticationService.login(loginRequest).subscribe(res => {

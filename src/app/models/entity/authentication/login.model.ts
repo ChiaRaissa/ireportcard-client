@@ -1,7 +1,7 @@
 export interface LoginRequest {
   username: string
   password: string
-  rememberMe?: boolean
+  extend?: boolean
 }
 
 export interface LoginResponse {
@@ -54,7 +54,7 @@ export const EmptySchoolStats: EntityStat[] = [
     icon: 'building'
   },
   {
-    name: 'Applications',
+    name: 'Subjects',
     value: 0,
     icon: 'folder-open'
   }

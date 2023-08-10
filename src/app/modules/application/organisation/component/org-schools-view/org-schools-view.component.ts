@@ -7,19 +7,20 @@ import {AppRoute} from "../../../../../app.routes";
 import {LocalStorageService, OrganisationId} from "../../../../../services/general/local-storage.service";
 import {isValidId} from "../../../../../models/entity/base/base.entity";
 import {faIcon} from "../../../../../utils/icon.util";
+import {DropdownChangeEvent} from "primeng/dropdown";
 
 @Component({
   selector: 'app-org-schools-view',
   templateUrl: './org-schools-view.component.html',
   styleUrls: ['./org-schools-view.component.css']
 })
-export class OrgSchoolsViewComponent implements OnInit {
-  schoolSelectDisabled: boolean = false;
+export class OrgSchoolsViewComponent implements OnInit{
+  protected readonly faIcon = faIcon;
   schoolId?: number;
   protected school?: SchoolEntity;
   protected schools: SchoolEntity[] = [];
   protected readonly AppRoute = AppRoute;
-  protected readonly faIcon = faIcon;
+  schoolSelectDisabled: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -45,11 +46,11 @@ export class OrgSchoolsViewComponent implements OnInit {
   visitSchoolDashboardAction() {
     if (isValidId(this.school?.id)) {
       this._localStorageService.set('school_id', this.school?.id);
-      this._routerService.switchDashboard(`school`, true);
+      this._routerService.switchDashboard('school', true);
     }
   }
 
-  updateSchool() {
-    this.school = this.schools.find(s => s.id == this.schoolId);
+  updateSchool($event: DropdownChangeEvent) {
+    this.school = $event.value as SchoolEntity;
   }
 }

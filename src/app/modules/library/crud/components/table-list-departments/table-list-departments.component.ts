@@ -7,8 +7,9 @@ import {DepartmentFilter} from "../../../../../models/filter/subject/department.
 import {FormControlModel} from "../../../form/models/form/form-control.model";
 import {DepartmentService} from "../../../../../services/http/subject/department.service";
 import {UserService} from "../../../../../services/http/user/user.service";
-import {RouterService} from 'src/app/services/general/router.service';
-import {AppRoute} from 'src/app/app.routes';
+import { RouterService } from 'src/app/services/general/router.service';
+import { AppRoute, AppRoutes } from 'src/app/app.routes';
+import {lastValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-table-list-departments',
@@ -42,9 +43,10 @@ export class TableListDepartmentsComponent
     this._departmentService.list(this.filter).subscribe(res => this.data = res);
   }
 
-  getUser(userId: number | null) {
+  async getUser(userId: number | null) {
     if (userId != null) {
-      return this._userService.getById(userId)
+      const user$ = this._userService.getById(userId);
+      return lastValueFrom(user$)
     }
     return undefined;
   }

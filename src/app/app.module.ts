@@ -15,7 +15,8 @@ import {FormsModule} from "@angular/forms";
 import {LandingComponent} from './components/landing/landing.component';
 import {ToastModule} from "primeng/toast";
 import { ContactComponent } from './components/landing/contact/contact.component';
-import { FooterComponent } from './components/landing/footer/footer.component';
+import { LandingFooterComponent } from './components/landing/footer/landing-footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/landing/footer/footer.component';
     SwitchComponent,
     LandingComponent,
     ContactComponent,
-    FooterComponent,
+    LandingFooterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     AppRoutingModule,

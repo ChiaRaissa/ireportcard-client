@@ -4,3 +4,8 @@
 @import "node_modules/primeng/resources/primeng.min.css";
 @import "node_modules/primeflex/primeflex.min.css";
 @import "node_modules/primeicons/primeicons.css";
+
+/* commonly used color */
+.color-blue {
+    color: #0077b6 !important;
+}

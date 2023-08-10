@@ -43,7 +43,7 @@ export class StuAcademicApplyComponent implements OnInit {
       schoolId: SchoolId(),
       organisationId: OrganisationId()
     })).subscribe(res => {
-      this.students = <UserAccountEntity[]>res.map(u => u.account).filter(isNotNullOrUndefined);
+      this.students = <UserAccountEntity[]>res.data.map(u => u.account).filter(isNotNullOrUndefined);
       const currentStudent = this.students.find(s => s.id == this.userAccount?.id);
       if (currentStudent) {
         this.form.patchValue({studentId: currentStudent.id});

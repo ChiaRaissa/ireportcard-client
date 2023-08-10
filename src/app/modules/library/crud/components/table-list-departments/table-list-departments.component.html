@@ -13,7 +13,8 @@
     <tr>
       <td>{{d.department.id}}</td>
       <td>{{d.department.name}}</td>
-      <td>{{(getUser(d.department.hodId) | async)?.user?.firstname ?? 'NONE'}}</td>
+      <td>{{(getUser(d.department.hodId) | async)?.account?.name ?? 'NONE'}}</td>
+      <td>{{d.hod?.name ?? 'NONE'}}</td>
       <td>
         <p-button (click)="viewAction(d.department.id)" label="View"></p-button>
       </td>

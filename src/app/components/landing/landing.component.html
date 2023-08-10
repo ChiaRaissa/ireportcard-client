@@ -4,7 +4,9 @@
       Transkript
     </a>
     <button aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation" class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" data-bs-target="#navbarSupportedContent"
+            aria-label="Toggle navigation"
+            class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+            data-bs-target="#navbarSupportedContent"
             data-bs-toggle="collapse" type="button">
       <span class="toggler-icon top-bar"></span>
       <span class="toggler-icon middle-bar"></span>
@@ -16,24 +18,26 @@
       <ul
         class="navbar-nav mb-sm-5 d-flex justify-content-center align-items-center ms-auto mb-2 mb-lg-0 gap-4 sm:m-auto">
         <li class="nav-item">
-          <a aria-current="page" href="#hero" class="nav-link active fs-5">Home</a>
+          <a aria-current="page" class="nav-link active fs-5" href="#hero">Home</a>
         </li>
         <li class="nav-item">
-          <a aria-current="page" href="#service" class="nav-link active fs-5">Services</a>
+          <a aria-current="page" class="nav-link active fs-5" href="#service">Services</a>
         </li>
         <li class="nav-item">
-          <a aria-current="page" href="#about" class="nav-link active fs-5">About</a>
+          <a aria-current="page" class="nav-link active fs-5" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a aria-current="page" href="#contact" class="nav-link active fs-5">Contact Us</a>
+          <a aria-current="page" class="nav-link active fs-5" href="#contact">Contact Us</a>
         </li>
       </ul>
 
       <!-- auth components and user profiles -->
       <div class="d-flex justify-content-center align-items-center gap-2 ms-auto">
-        <button [routerLink]="['/auth/login']" class="p-button-text" icon="pi pi-sign-in" label="Login" pButton style="background-color: #fff !important;"
+        <button [routerLink]="['/auth/login']" class="p-button-text" icon="pi pi-sign-in" label="Login" pButton
+                style="background-color: #fff !important;"
                 type="button"></button>
-        <button class="p-button-text" icon="pi pi-user-plus" label="Register" pButton style="background-color: #fff !important;"
+        <button class="p-button-text" icon="pi pi-user-plus" label="Register" pButton
+                style="background-color: #fff !important;"
                 type="button"></button>
       </div>
     </div>
@@ -64,73 +68,13 @@
   </div>
   <div class="container bootstrap snippets bootdeys">
     <div class="row text-center">
-      <div class="col-md-4 col-sm-6 content-card">
+      <div *ngFor="let data of serviceData" class="col-md-4 col-sm-6 content-card">
         <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+          <div [attr.data-color]="data.data_color" class="card card-just-text" data-background="color"
+               data-radius="none">
             <div class="content">
-              <h4 class="title"><a href="#">Comprehensive Grading System</a></h4>
-              <p class="description">Flexible grading scales and fair evaluation ensure accurate assessment, adapting to
-                diverse student needs and progress. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 content-card">
-        <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
-            <div class="content">
-              <h4 class="title"><a href="#">Automated Report Generation</a></h4>
-              <p class="description">Automated report generation saves time, providing professional and consistent
-                reports with personalized comments for effective communication.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 content-card">
-        <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
-            <div class="content">
-              <h4 class="title"><a href="#">Real-Time Data Analysis</a></h4>
-              <p class="description">Real-time data analysis empowers informed decision-making, offering actionable
-                insights into student performance for timely interventions and support.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 content-card">
-        <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="brown" data-radius="none">
-            <div class="content">
-              <h4 class="title"><a href="#">Parent-Teacher Communication</a></h4>
-              <p class="description">Seamless parent-teacher communication fosters collaboration, keeping parents
-                engaged in their child's education journey for better support.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 content-card">
-        <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="purple" data-radius="none">
-            <div class="content">
-              <h4 class="title"><a href="#">Individualized Student Portfolios</a></h4>
-              <p class="description">Individualized student portfolios promote growth, reflection, and showcase unique
-                achievements, empowering students to track their progress over time.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 content-card">
-        <div class="card-big-shadow">
-          <div class="card card-just-text" data-background="color" data-color="orange" data-radius="none">
-            <div class="content">
-              <h4 class="title"><a href="#">Customizable and Scalable</a></h4>
-              <p class="description">A customizable and scalable system tailored to meet the specific needs of
-                educational institutions, ensuring adaptability and future readiness.</p>
+              <h4 class="title"><a href="#">{{data.title}}</a></h4>
+              <p class="description">{{data.description}}</p>
             </div>
           </div>
         </div>
@@ -150,20 +94,20 @@
         <div class="col-lg-6">
           <h1 class="display-4">Transkript</h1>
           <p class="lead text-muted mb-0">Transkript is a leading software company, specializing in designing and
-            building innovative tools for efficient organization management. With a focus on enhancing productivity, our
+            building innovative tools for efficient school management. With a focus on enhancing productivity, our
             intuitive software solutions streamline workflows, data, and communication. We collaborate closely with
             clients, leveraging cutting-edge technology to create customized, scalable applications that drive success
             and deliver exceptional value. Experience the power of Transkript's software solutions today.</p>
         </div>
-        <div class="col-lg-6 d-none d-lg-block"><img alt=""
-                                                     class="img-fluid" src="https://bootstrapious.com/i/snippets/sn-about/illus.png"></div>
+        <div class="col-lg-6 d-none d-lg-block"><img alt="" class="img-fluid" src="https://bootstrapious.com/i/snippets/sn-about/illus.png">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- contact us page -->
-<section class="contact" id="contact">
+<section class="contact mb-5" id="contact">
   <div class="d-flex justify-content-center py-4 align-items-center">
     <h3 class="fw-bold">Contact Us</h3>
   </div>

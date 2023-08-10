@@ -5,15 +5,13 @@ import {AvatarService} from "../../../../../services/general/avatar.service";
   selector: 'app-avatar',
   styleUrls: ['./avatar.component.css'],
   template: `
-    <img #image src="../../../../../../assets/image/avatar/default.png" alt="{{firstname + ' ' + lastname}} avatar"
+    <img #image src="../../../../../../assets/image/avatar/default.png" alt="{{name}} avatar"
          class="rounded-circle">
   `
 })
 export class AvatarComponent implements OnInit {
   @Input()
-  firstname: string = "";
-  @Input()
-  lastname: string = "";
+  name?: string = "John Doe";
   class: string = "";
 
   @ViewChild("image")
@@ -29,20 +27,6 @@ export class AvatarComponent implements OnInit {
       this.createImageFromBlob(res);
     });
      */
-
-  }
-
-  private name() {
-    let f = "John", l = "Doe"
-    if (this.firstname.length > 0) {
-      const i = this.firstname.indexOf(" ");
-      f = this.firstname.substring(0, i);
-    }
-    if (this.lastname.length > 0) {
-      const i = this.lastname.indexOf(" ");
-      l = this.lastname.substring(0, i);
-    }
-    return `${f} ${l}`
   }
 
   private createImageFromBlob(blob: Blob) {

@@ -1,0 +1,63 @@
+<section class="surface-section">
+  <div class="grid app-bg-body">
+    <div class="col-12 md:col-4 p-1 lg:p-2">
+      <p-card>
+        <div class="mb-2">
+          <span class="block py-1 text-xl"><b>Timesheet</b> {{today().toDateString()}}</span>
+          <div *ngIf="attendanceToday?.checkIn" class="p-2 border-solid border-1 border-black-alpha-40 border-round">
+            <span class="font-bold">Checked in at:</span>&nbsp;
+            <span>{{displayTime(attendanceToday!!.checkIn?.checkTime)}}</span>
+          </div>
+          <div *ngIf="attendanceToday?.checkOut" class="p-2 border-solid border-1 border-black-alpha-40 border-round">
+            <span class="font-bold">Checked out at:</span>&nbsp;
+            <span>{{displayTime(attendanceToday!!.checkOut?.checkTime)}}</span>
+          </div>
+        </div>
+        <div class="pb-2">
+          <div class="flex flex-column gap-4 align-items-center justify-content-center">
+            <p-chart type="doughnut" [data]="timeSheetChartData" width="128px" [options]="timeSheetChartOptions"></p-chart>
+            <p-button *ngIf="!attendanceToday?.checkIn" label="Check In" styleClass="p-button-sm border-round-lg" (click)="checkAction(AttendanceCheckType.IN)"></p-button>
+            <p-button *ngIf="attendanceToday?.checkIn && !attendanceToday?.checkOut" label="Check Out" styleClass="p-button-sm border-round-lg" (click)="checkAction(AttendanceCheckType.OUT)"></p-button>
+          </div>
+        </div>
+        <div class="grid mb-2">
+          <div class="col-6 text-center">
+            <div class="border-solid border-1 border-black-alpha-40 border-round m-2 py-2">
+              Break
+            </div>
+          </div>
+          <div class="col-6 text-center">
+            <div class="border-solid border-1 border-black-alpha-40 border-round m-2 py-2">
+              Overtime
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-4 p-1 lg:p-2">
+      <p-card>
+        <div class="mb-2">
+          <span class="block py-1 text-xl">
+            <b>Statistics</b>
+          </span>
+        </div>
+        <div *ngFor="let statData of statisticsData" class="p-2 mb-2 border-solid border-1 border-black-alpha-40 border-round">
+          <div class="flex justify-content-between">
+            <span class="font-bold">{{statData.label}}</span>
+            <span class="">{{statData.stat}}</span>
+          </div>
+          <p-progressBar [value]="statData.value" [showValue]="false" [style]="{height: '8px'}"></p-progressBar>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-4 p-1 lg:p-2">
+      <p-card>
+        <div class="mb-2">
+          <span class="block py-1 text-xl">
+            <b>Activity</b>
+          </span>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</section>

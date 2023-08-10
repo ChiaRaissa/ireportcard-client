@@ -1,0 +1,73 @@
+<div class="px-3">
+  <div class="p">
+    <form [formGroup]="form" (submit)="submit()" class="formgrid grid">
+      <div class="pb-3 col-12">
+        <span class="text-700 text-2xl">{{title}}</span>
+      </div>
+      <!-- form -->
+      <div formGroupName="organisation" class="w-full flex formgrid grid">
+        <div class="field col-12 md:col-6 lg:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full" formControlName="name" id="name" pInputText>
+            <label [htmlFor]="'name'">Enter Organisation Name</label>
+          </span>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6 pb-3">
+          <span class="p-float-label">
+            <p-dropdown
+              optionLabel="name"
+              optionValue="value"
+              [options]="languageOptions"
+              formControlName="language"
+              id="language"
+              placeholder="Language"
+              styleClass="w-full">
+            </p-dropdown>
+            <label [htmlFor]="'language'" i18n>Language</label>
+          </span>
+        </div>
+      </div>
+      <div class="pb-3 col-12">
+        <span class="text-700 text-2xl">{{adminInfo}}</span>
+      </div>
+      <div formGroupName="creator" class="formgrid grid w-full m-0">
+        <div class="field col-12 md:col-6 lg:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full" formControlName="firstname" id="firstname" pInputText>
+            <label [htmlFor]="'firstname'" i18n>First Name</label>
+          </span>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full" formControlName="lastname" id="lastname" pInputText>
+            <label [htmlFor]="'lastname'" i18n>LastName</label>
+          </span>
+        </div>
+        <div class="field col-12 w-full md:col-6 lg:col-4 pb-3">
+          <span class="p-float-label">
+            <input class="w-full" formControlName="email" id="email" pInputText>
+            <label [htmlFor]="'email'" i18n>Email Address</label>
+          </span>
+        </div>
+        <div class="field col-12 pb-3">
+          <span class="p-float-label">
+            <input class="w-full" formControlName="phone" id="phone" pInputText>
+            <label [htmlFor]="'phone'" i18n>Phone Number</label>
+          </span>
+        </div>
+      </div>
+      <div class="field w-full col-12 md:col-6 lg:col-6 pb-3">
+        <span class="p-float-label">
+          <span class="p-float-label">
+              <input class="w-full" formControlName="password" id="password" type="password" pInputText>
+              <label [htmlFor]="'password'" i18n>Password</label>
+          </span>
+        </span>
+      </div>
+      <!--buttons-->
+      <div class="field col-12">
+        <p-button [label]="btnLabel" [disabled]="this.form.invalid" type="submit" icon="pi pi-pencil" [loading]="loading"></p-button>
+      </div>
+    </form>
+  </div>
+</div>

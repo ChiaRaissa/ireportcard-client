@@ -5,6 +5,7 @@ import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {UserService} from "../../../../../services/http/user/user.service";
 import {SubmitForm} from "../form/submit.form";
+import {Language} from "../../../../../models/entity/base/language.enum";
 
 @Component({
   selector: 'app-admin-register-form',
@@ -92,13 +93,11 @@ export class AdminRegisterFormComponent implements SubmitForm {
   submit() {
     const user = new UserPayload(
       {
-        firstname: this.form.get('firstname')?.value,
-        lastname: this.form.get('lastname')?.value,
         username: this.form.get('email')?.value,
         email: this.form.get('email')?.value,
         phone: this.form.get('phone')?.value,
         address: `${this.form.get('address')?.value ?? ''} ${this.form.get('address2')?.value}`.trim(),
-
+        language: Language.ENGLISH
       },
       {
         firstname: this.form.get('firstname')?.value,

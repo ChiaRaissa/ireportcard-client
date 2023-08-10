@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SubmitForm} from "../form/submit.form";
 import {SchoolEntity} from "../../../../../models/entity/school/school.entity";
@@ -36,5 +36,20 @@ export class FormSchoolUpsertComponent implements SubmitForm {
       organisationId: OrganisationId()
     }
     this.submitEvent.emit(school)
+  }
+
+  patchForm(school: SchoolEntity) {
+    this.form.patchValue({
+      name: school.name,
+      motto: school.motto,
+      organisation: school.organisationId
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const school = changes['school']['currentValue']
+    if (school) {
+      this.patchForm(school);
+    }
   }
 }

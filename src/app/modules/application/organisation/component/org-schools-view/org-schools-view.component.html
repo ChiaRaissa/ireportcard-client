@@ -1,9 +1,8 @@
 <section class="section">
   <div class="py-2">
-    <p-dropdown (change)="updateSchool()" [(ngModel)]="schoolId" [disabled]="schoolSelectDisabled" [options]="schools"
-                optionLabel="name"></p-dropdown>
+    <p-dropdown [disabled]="schoolSelectDisabled" [options]="schools" (onChange)="updateSchool($event)" optionLabel="name"></p-dropdown>
   </div>
-  <app-form-school-upsert [school]="school"></app-form-school-upsert>
+  <app-form-school-upsert [school]="school" [editing]="true"></app-form-school-upsert>
   <div>
     <p-button
       (click)="visitSchoolDashboardAction()"

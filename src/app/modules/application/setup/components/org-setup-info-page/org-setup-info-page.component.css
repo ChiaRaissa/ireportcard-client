@@ -1,0 +1,28 @@
+.button {
+  border-radius: 5px;
+  color: #fff;
+  transition: all ease-in 0.2s;
+  font-weight: 600;
+}
+
+.btn-border {
+  background-color: transparent;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+}
+
+.btn-border:hover {
+  background-color: #fff;
+  transform: translateY(-5px);
+  color: black;
+}
+
+.btn-color {
+  border: none;
+  background-color: #0077b6;
+  padding: 11px 20px;
+}
+
+.btn-color:hover {
+  transform: translateY(-5px);
+}

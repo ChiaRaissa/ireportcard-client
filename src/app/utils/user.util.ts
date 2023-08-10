@@ -19,7 +19,7 @@ export module UserUtil {
             cells: [
               new TableCell(user.user.id),
               new TableCell(user.user.username),
-              new TableCell(`${user.user.firstname} ${user.user.lastname}`),
+              new TableCell(`${user.account?.name}`),
               new TableCell(user.account?.gender ?? ''),
               new TableCell(user.user.approved),
             ]

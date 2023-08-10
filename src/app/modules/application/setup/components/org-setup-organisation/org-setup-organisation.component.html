@@ -1,0 +1,17 @@
+<div class="surface-section border-round-xl p-3" *ngIf="!completed">
+  <app-form-org-setup-organisation (submitEvent)="submit($event)" [loading]="loading"></app-form-org-setup-organisation>
+</div>
+<div class="flex flex-column justify-content-center align-items-center" *ngIf="completed">
+  <div class="card surface-card border-round-2xl px-4 py-5 flex flex-column justify-content-center align-items-center">
+    <div class="bg-green-300 w-10rem h-10rem flex justify-content-center align-items-center round p-2">
+      <div class="bg-white w-9rem h-9rem flex justify-content-center align-items-center round">
+        <i class="pi pi-check fw-bold text-large text-green-300"></i>
+      </div>
+    </div>
+    <div class="text-center fs-4 py-2">Organisation Created Successfully</div>
+    <div class="text-center">
+      <p-button label="Return Home" icon="pi pi-chevron-right" styleClass="p-button-primary"></p-button>
+    </div>
+  </div>
+</div>
+

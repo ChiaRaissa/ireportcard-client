@@ -10,7 +10,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class ProfileComponent implements OnInit {
   userPayload?: UserPayload;
-  fullName: string = "";
   editProfileForm: FormGroup = this._fb.group({});
 
   constructor(
@@ -19,10 +18,12 @@ export class ProfileComponent implements OnInit {
   ) {
     this._userService.getByPrincipal().subscribe(res => {
       this.userPayload = res;
-      this.fullName = `${res.user.firstname} ${res.user.lastname}`
       this.prepareEditProfileForm(res);
     });
+  }
 
+  get fullName() {
+    return this.userPayload?.account?.name
   }
 
   ngOnInit(): void {
@@ -31,8 +32,8 @@ export class ProfileComponent implements OnInit {
 
   private prepareEditProfileForm = (userPayload: UserPayload) => {
     this.editProfileForm = this._fb.group({
-      firstname: [userPayload.user.firstname],
-      lastname: [userPayload.user.lastname],
+      firstname: [userPayload.account?.firstname],
+      lastname: [userPayload.account?.lastname],
       address: [userPayload.user.address],
       phone: [userPayload.user.phone],
       email: [userPayload.user.email],

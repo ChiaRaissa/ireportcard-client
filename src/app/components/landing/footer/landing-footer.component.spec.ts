@@ -1,16 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {FooterComponent} from './footer.component';
+import {LandingFooterComponent} from './landing-footer.component';
 
 describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+  let component: LandingFooterComponent;
+  let fixture: ComponentFixture<LandingFooterComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [LandingFooterComponent]
     });
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(LandingFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

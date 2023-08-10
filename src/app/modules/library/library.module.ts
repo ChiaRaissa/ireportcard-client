@@ -47,6 +47,16 @@ import {TableListSatComponent} from './crud/components/table-list-sat/table-list
 import {TableListCoursesComponent} from './crud/components/table-list-courses/table-list-courses.component';
 import {FormUserAddComponent} from './form/components/form-user-add/form-user-add.component';
 import { FormStudentTuitionPayComponent } from './form/components/form-student-tuition-pay/form-student-tuition-pay.component';
+import {FormOrgSetupOrganisationComponent} from "./form/components/form-org-setup-organisation/form-org-setup-organisation.component";
+import {
+  TableListStudentClasslistComponent
+} from "./crud/components/table-list-student-classlist/table-list-student-classlist.component";
+import {AttendanceUserComponent} from "./general/components/attendance-user/attendance-user.component";
+import { FormCycleAcademicYearComponent } from './form/components/form-cycle-academic-year/form-cycle-academic-year.component';
+import { FormCycleSchoolTermComponent } from './form/components/form-cycle-school-term/form-cycle-school-term.component';
+import { FormCycleSequenceComponent } from './form/components/form-cycle-sequence/form-cycle-sequence.component';
+import {PaginatorModule} from "primeng/paginator";
+import { CrudTableListComponent } from './crud/components/crud-table-list/crud-table-list.component';
 
 
 @NgModule({
@@ -76,9 +86,19 @@ import { FormStudentTuitionPayComponent } from './form/components/form-student-t
     TableListCoursesComponent,
     FormUserAddComponent,
     FormSchoolUpsertComponent,
-    FormStudentTuitionPayComponent
+    FormStudentTuitionPayComponent,
+    FormOrgSetupOrganisationComponent,
+    TableListStudentClasslistComponent,
+    AttendanceUserComponent,
+    FormCycleAcademicYearComponent,
+    FormCycleSchoolTermComponent,
+    FormCycleSequenceComponent,
+    AttendanceUserComponent,
+    CrudTableListComponent
   ],
   exports: [
+    PasswordModule,
+    PaginatorModule,
     ReactiveFormsModule,
     HeaderComponent,
     SidebarComponent,
@@ -115,8 +135,15 @@ import { FormStudentTuitionPayComponent } from './form/components/form-student-t
     TableListCoursesComponent,
     FormUserAddComponent,
     FormStudentTuitionPayComponent,
+    FormOrgSetupOrganisationComponent,
+    TableListStudentClasslistComponent,
+    AttendanceUserComponent,
+    FormCycleAcademicYearComponent,
+    FormCycleSchoolTermComponent,
+    FormCycleSequenceComponent
   ],
   imports: [
+    PaginatorModule,
     CommonModule,
     ReactiveFormsModule,
     RouterLink,

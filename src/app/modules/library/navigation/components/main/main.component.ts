@@ -48,6 +48,11 @@ export const breadCrumbMenuItems = (route: AppRoute): BreadCrumbMenuItem[] => {
         name: curr.name
       }
     });
-    return {routerLink: resolvedRoute.main, label: resolvedRoute.name}
+    if (resolvedRoute.name == 'App') {
+      return { label: resolvedRoute.name }
+    }
+    return {
+      routerLink: resolvedRoute.main, label: resolvedRoute.name
+    }
   });
 }

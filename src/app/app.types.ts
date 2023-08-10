@@ -8,3 +8,5 @@ export type CustomObject = {
 }
 
 export type DashboardOption = 'school' | 'organisation' | 'student' | 'teacher';
+
+export type MapperFunction = <T, U> (source: T) => U

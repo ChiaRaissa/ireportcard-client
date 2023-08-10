@@ -1,0 +1,20 @@
+<div>
+  <div class="grid">
+    <div class="col-12 md:col-3 field">
+      <label class="block mb-2" >Class Level</label>
+      <p-dropdown [options]="classLevels" optionValue="id" optionLabel="name" styleClass="w-full"></p-dropdown>
+    </div>
+    <div class="col-12 md:col-3">
+      <label class="block mb-2">Subject</label>
+      <p-dropdown [options]="subjects" optionValue="id" optionLabel="name" styleClass="w-full"></p-dropdown>
+    </div>
+    <div class="col-12 md:col-3">
+      <label class="block mb-2" >Academic Year</label>
+      <p-dropdown [options]="academicYears" optionValue="id" optionLabel="name" styleClass="w-full"></p-dropdown>
+    </div>
+    <div class="col-12 md:col-3">
+      <label class="block mb-2" >Sequence</label>
+      <p-dropdown [options]="sequences" optionValue="id" optionLabel="name" styleClass="w-full"></p-dropdown>
+    </div>
+  </div>
+</div>

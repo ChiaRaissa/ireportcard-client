@@ -29,7 +29,7 @@ nav.navbar {
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: #0077b6;
   border-radius: 3px;
   opacity: 1;
   left: 0;
@@ -79,6 +79,7 @@ form a:hover {
 .navbar .nav-item:hover {
   background-color: rgba(61, 130, 109, 0.2);
   backdrop-filter: blur(3px);
+  border-radius: 5px !important;
 }
 
 .nav-link {
@@ -95,10 +96,6 @@ form a:hover {
   }
 }
 
-
-.color-blue {
-  color: #0077b6 !important;
-}
 
 /* Hero Page */
 .hero-wrapper {

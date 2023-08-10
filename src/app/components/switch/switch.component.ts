@@ -7,6 +7,8 @@ import {RouterService} from "../../services/general/router.service";
 import {SchoolService} from "../../services/http/school/school.service";
 import {LocalStorageService, OrganisationId} from "../../services/general/local-storage.service";
 import {SchoolEntity} from "../../models/entity/school/school.entity";
+import {UserProviderService} from "../../services/provider/user.provider.service";
+import {UserPayload} from "../../models/entity/user/user.payload";
 
 @Component({
   selector: 'app-switch',
@@ -58,6 +60,7 @@ export class SwitchComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _userService: UserService,
+    private _userProvider: UserProviderService,
     private _routerService: RouterService,
     private _localStorage: LocalStorageService,
     private _schoolService: SchoolService,
@@ -65,22 +68,14 @@ export class SwitchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._userService.getByPrincipal().subscribe(res => {
+    this._userProvider.executor((payload: UserPayload) => {
       this.dashboardOptions = [];
-      if (res.account) {
-        switch (res.account.role) {
-          case Role.ORGANISATION_ADMIN:
-            this.dashboardOptions = ['organisation', 'school'];
-            break;
-          case Role.SCHOOL_ADMIN:
-            this.dashboardOptions = ['school'];
-            break;
-          case Role.TEACHER:
-            this.dashboardOptions = ['teacher'];
-            break;
-          case Role.STUDENT:
-            this.dashboardOptions = ['student'];
-            break;
+      if (payload.account) {
+        switch (payload.account.role) {
+          case Role.ORGANISATION_ADMIN: this.dashboardOptions = ['organisation', 'school']; break;
+          case Role.SCHOOL_ADMIN: this.dashboardOptions = ['school']; break;
+          case Role.TEACHER: this.dashboardOptions = ['teacher']; break;
+          case Role.STUDENT: this.dashboardOptions = ['student']; break;
         }
       }
     });

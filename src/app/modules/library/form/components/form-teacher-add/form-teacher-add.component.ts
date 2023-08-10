@@ -5,6 +5,7 @@ import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {genderOptions} from "../../../../../models/entity/base/gender.enum";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
+import {languageOptions} from "../../../../../models/entity/base/language.enum";
 
 @Component({
   selector: 'app-form-teacher-add',
@@ -17,6 +18,7 @@ export class FormTeacherAddComponent implements SubmitForm {
   @Output()
   submitEvent = new EventEmitter<UserPayload>();
   protected readonly genderOptions = genderOptions;
+  protected readonly languageOptions = languageOptions;
 
   constructor(private _fb: FormBuilder) {
     this.form = _fb.group({
@@ -27,6 +29,7 @@ export class FormTeacherAddComponent implements SubmitForm {
       phone: [''],
       address: [''],
       gender: ['', Validators.required],
+      language: ['', Validators.required],
       password: ['', Validators.required],
       password2: ['', Validators.required],
     });

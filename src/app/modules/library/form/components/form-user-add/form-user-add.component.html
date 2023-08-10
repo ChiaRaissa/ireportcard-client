@@ -32,6 +32,20 @@
       </div>
       <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
+            <p-dropdown
+              optionLabel="name"
+              optionValue="value"
+              [options]="languageOptions"
+              formControlName="language"
+              id="language"
+              placeholder="Language"
+              styleClass="w-full">
+            </p-dropdown>
+            <label [htmlFor]="'language'" i18n>Language</label>
+          </span>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-4 pb-3">
+          <span class="p-float-label">
             <input class="w-full" formControlName="phone" id="phone" pInputText>
             <label [htmlFor]="'phone'" i18n>Phone Number</label>
           </span>
